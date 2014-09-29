@@ -111,5 +111,3 @@ use it.
 You can see some example output from this function. The function that you write should be able to
 match this output. Please save your code to a file named corr.R. To run the submit script for this part,
 make sure your working directory has the file corr.R in it.
-
-https://class.coursera.org/rprog-007/assignment/view?assignment_id=3

@@ -1,7 +1,7 @@
 R programming assignments
 =========================
 
-Answers to Coursera's "R Programming" course assignments, taught by John Hopkins School of Public Health.
+Answers to Coursera's [R Programming](https://class.coursera.org/rprog-007/) course assignments, taught by John Hopkins School of Public Health.
 
 There also some notes on stuff I learnt from Swirl (R programming "module").
 
