@@ -1,7 +1,7 @@
 Assignment: Hospital Ranking
 ============================
 
-**All credits to Coursera and/or  John Hopkins Public Health University
+**All credits to Coursera and/or  John Hopkins School of Public Health
 
 Introduction
 -------------
