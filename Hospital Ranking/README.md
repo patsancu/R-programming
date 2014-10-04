@@ -59,27 +59,21 @@ best <- function(state, outcome) {
 The function should check the validity of its arguments. If an invalid state value is passed to best, the function should throw an error via the stop function with the exact message “invalid state”. If an invalid outcome value is passed to best, the function should throw an error via the stop function with the exact message “invalid outcome”.
 
 Here is some sample output from the function.
+```
 > source("best.R")
-
 > best("TX", "heart attack")
-
 [1] "CYPRESS FAIRBANKS MEDICAL CENTER"
 > best("TX", "heart failure")
-
 [1] "FORT DUNCAN MEDICAL CENTER"
 > best("MD", "heart attack")
-
 [1] "JOHNS HOPKINS HOSPITAL, THE"
 > best("MD", "pneumonia")
-
 [1] "GREATER BALTIMORE MEDICAL CENTER"
 > best("BB", "heart attack")
-
 Error in best("BB", "heart attack") : invalid state
 > best("NY", "hert attack")
-
 Error in best("NY", "hert attack") : invalid outcome
->
+```
 
 Save your code for this function to a file named best.R.
 Use the submit script provided to submit your solution to this part. There are 3 tests that need to be passed
@@ -92,6 +86,7 @@ Write a function called rankhospital that takes three arguments: the 2-character
 rankhospital("MD", "heart failure", 5)
 would return a character vector containing the name of the hospital with the 5th lowest 30-day death rate for heart failure. The num argument can take values “best”, “worst”, or an integer indicating the ranking (smaller numbers are better). If the number given by num is larger than the number of hospitals in that state, then the function should return NA. Hospitals that do not have data on a particular outcome should be excluded from the set of hospitals when deciding the rankings.
 Handling ties. It may occur that multiple hospitals have the same 30-day mortality rate for a given cause of death. In those cases ties should be broken by using the hospital name. For example, in Texas (“TX”), the hospitals with lowest 30-day mortality rate for heart failure are shown here.
+```
 > head(texas)
 Hospital.Name Rate Rank
 3935 FORT DUNCAN MEDICAL CENTER 8.1 1
@@ -100,19 +95,23 @@ Hospital.Name Rate Rank
 3954 DETAR HOSPITAL NAVARRO 8.7 4
 4010 METHODIST HOSPITAL,THE 8.8 5
 3962 MISSION REGIONAL MEDICAL CENTER 8.8 6
+```
 Note that Cypress Fairbanks Medical Center and Detar Hospital Navarro both have the same 30-day rate (8.7). However, because Cypress comes before Detar alphabetically, Cypress is ranked number 3 in this scheme and Detar is ranked number 4. One can use the order function to sort multiple vectors in this manner (i.e. where one vector is used to break ties in another vector).
 The function should use the following template.
 
+```
 rankhospital <- function(state, outcome, num = "best") {
 	## Read outcome data
 	## Check that state and outcome are valid
 	## Return hospital name in that state with the given rank
 	## 30-day death rate
 }
+```
 
 The function should check the validity of its arguments. If an invalid state value is passed to best, the function should throw an error via the stop function with the exact message “invalid state”. If an invalid outcome value is passed to best, the function should throw an error via the stop function with the exact message “invalid outcome”.
 
 Here is some sample output from the function.
+```
 > source("rankhospital.R")
 > rankhospital("TX", "heart failure", 4)
 [1] "DETAR HOSPITAL NAVARRO"
@@ -120,6 +119,7 @@ Here is some sample output from the function.
 [1] "HARFORD MEMORIAL HOSPITAL"
 > rankhospital("MN", "heart attack", 5000)
 [1] NA
+```
 Save your code for this function to a file named rankhospital.R.
 Use the submit script provided to submit your solution to this part. There are 4 tests that need to be passed
 for this part of the assignment.
@@ -131,6 +131,7 @@ Write a function called rankall that takes two arguments: an outcome name (outco
 Handling ties. The rankall function should handle ties in the 30-day mortality rates in the same way that the rankhospital function handles ties.
 
 The function should use the following template.
+```
 rankall <- function(outcome, num = "best") {
 	## Read outcome data
 	## Check that state and outcome are valid
@@ -138,6 +139,7 @@ rankall <- function(outcome, num = "best") {
 	## Return a data frame with the hospital names and the
 	## (abbreviated) state name
 }
+```
 NOTE: For the purpose of this part of the assignment (and for efficiency), your function should NOT call
 the rankhospital function from the previous section.
 The function should check the validity of its arguments. If an invalid outcome value is passed to rankall, the function should throw an error via the stop function with the exact message “invalid outcome”. The num variable can take values “best”, “worst”, or an integer indicating the ranking (smaller numbers are better).
@@ -145,6 +147,7 @@ If the number given by num is larger than the number of hospitals in that state,
 return NA.
 
 Here is some sample output from the function.
+```
 > source("rankall.R")
 > head(rankall("heart attack", 20), 10)
 							hospital 	state
@@ -175,8 +178,7 @@ WA HARBORVIEW MEDICAL CENTER 						WA
 WI AURORA ST LUKES MEDICAL CENTER 					WI
 WV FAIRMONT GENERAL HOSPITAL 						WV
 WY CHEYENNE VA MEDICAL CENTER 						WY
-
+```
 Save your code for this function to a file named rankall.R.
 Use the submit script provided to submit your solution to this part. There are 3 tests that need to be passed
 for this part of the assignment.
-5
