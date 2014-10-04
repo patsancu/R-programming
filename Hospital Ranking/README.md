@@ -1,6 +1,8 @@
 Assignment: Hospital Ranking
 ============================
 
+**All credits to Coursera and/or  John Hopkins Public Health University
+
 Introduction
 -------------
 
@@ -16,17 +18,22 @@ The Hospital Compare web site contains a lot of data and we will only look at a 
 A description of the variables in each of the files is in the included PDF file named Hospital_Revised_Flatfiles.pdf. This document contains information about many other files that are not included with this programming assignment. You will want to focus on the variables for Number 19 (“Outcome of Care Measures.csv”) and
 Number 11 (“Hospital Data.csv”). You may find it useful to print out this document (at least the pages for Tables 19 and 11) to have next to you while you work on this assignment. In particular, the numbers of the variables for each table indicate column indices in each table (i.e. “Hospital Name” is column 2 in the outcome-of-care-measures.csv file).
 
-** Plotting **
+Plotting
+---------
 Plot the 30-day mortality rates for heart attack
 Read the outcome data into R via the read.csv function and look at the first few rows.
+```
 > outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
 > head(outcome)
+```
 
 There are many columns in this dataset. You can see how many by typing ncol(outcome) (you can see the number of rows with the nrow function). In addition, you can see the names of each column by typing names(outcome) (the names are also in the PDF document.
 To make a simple histogram of the 30-day death rates from heart attack (column 11 in the outcome dataset), run
+```
 > outcome[, 11] <- as.numeric(outcome[, 11])
 > ##### You may get a warning about NAs being introduced; that is okay
 > hist(outcome[, 11])
+```
 
 Because we originally read the data in as character (by specifying colClasses = "character" we need to
 coerce the column to be numeric. You may get a warning about NAs being introduced but that is okay.
@@ -40,12 +47,14 @@ Write a function called best that take two arguments: the 2-character abbreviate
 Handling ties. If there is a tie for the best hospital for a given outcome, then the hospital names should be sorted in alphabetical order and the first hospital in that set should be chosen (i.e. if hospitals “b”, “c”, and “f” are tied for best, then hospital “b” should be returned).
 
 The function should use the following template.
+```
 best <- function(state, outcome) {
 	## Read outcome data
 	## Check that state and outcome are valid
 	## Return hospital name in that state with lowest 30-day death
 	## rate
 }
+```
 
 The function should check the validity of its arguments. If an invalid state value is passed to best, the function should throw an error via the stop function with the exact message “invalid state”. If an invalid outcome value is passed to best, the function should throw an error via the stop function with the exact message “invalid outcome”.
 
